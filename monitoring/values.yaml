@@ -1,0 +1,29 @@
+prometheus:
+  prometheusSpec:
+    retention: 15d
+
+    scrapeInterval: 15s
+
+    evaluationInterval: 15s
+
+grafana:
+  enabled: true
+
+  adminUser: admin
+  adminPassword: admin123
+
+  service:
+    type: LoadBalancer
+
+  persistence:
+    enabled: true
+    size: 5Gi
+
+alertmanager:
+  enabled: true
+
+kubeStateMetrics:
+  enabled: true
+
+nodeExporter:
+  enabled: true

@@ -1,0 +1,32 @@
+# dependencies
+node_modules/
+
+# production
+build/
+
+# logs
+logs
+*.log
+npm-debug.log*
+
+# environment
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Kubernetes
+*.kubeconfig
+
+# Helm
+charts/
+*.tgz
+
+# Misc
+*.tmp

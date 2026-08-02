@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: starbucks-deployment
+  namespace: starbucks
+  labels:
+    app: starbucks
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: starbucks
+
+  template:
+    metadata:
+      labels:
+        app: starbucks
+
+    spec:
+      containers:
+      - name: starbucks-container
+
+        image: YOUR_AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/starbucks-react:latest
+
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 80
+
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5
