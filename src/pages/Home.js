@@ -88,7 +88,7 @@ const Home = () => {
                       
                             <div className='flex  h-60  px-3'>
             <div className='p-5  min-w-full shadow-lg rounded-lg  flex sm:gap-7 '    style={{ backgroundImage: `url(${item.bg})` }}>
-              <img src={item.img} className="h-full scale-125 w-16 -m-2 sm:w-auto " />
+              <img src={item.img} className="h-full scale-125 w-16 -m-2 sm:w-auto "alt="Starbucks Logo" />
               <div className={`text-${item.id==="1"||  item.id === "3" ? 'black':'white'} font-Regular max-w-2xl `}>
                 <p className='text-sm font-s_bold'>{item.title}</p>
                 <h2 className=' font-semibold text-base sm:text-xl my-3'>{item.head}</h2>

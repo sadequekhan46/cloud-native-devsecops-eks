@@ -59,7 +59,7 @@ const Header = () => {
            {/* mobile version  */}
            <div className='h-40 sm:hidden overflow-hidden relative '>
                 <div className=''>
-                    <img src={welcomeImage} />
+                    <img src={welcomeImage}alt="starbucks logo" />
                 </div>
                 <div className='w-full absolute top-0 text-white text-2xl p-3'>
                     <div className='px-3 py-2 sm:w-11/12 m-auto flex justify-between'>
