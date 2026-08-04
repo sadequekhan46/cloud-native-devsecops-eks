@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: starbucks-deployment
-  namespace: starbucks
+  name: cloud-native-devsecops-deployment
+  namespace: cloud-native-devsecops
   labels:
-    app: starbucks
+    app: cloud-native-devsecops
 
 spec:
   replicas: 2
 
   selector:
     matchLabels:
-      app: starbucks
+      app: cloud-native-devsecops
 
   template:
     metadata:
       labels:
-        app: starbucks
+        app: cloud-native-devsecops
 
     spec:
       containers:
-      - name: starbucks-container
+      - name: cloud-native-devsecops-container
 
-        image: YOUR_AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/starbucks-react:latest
+        image: 781863585859.dkr.ecr.us-east-1.amazonaws.com/cloud-native-devsecops-eks:v1
 
         imagePullPolicy: Always
 

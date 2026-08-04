@@ -2,12 +2,12 @@ apiVersion: v1
 kind: Service
 
 metadata:
-  name: starbucks-service
-  namespace: starbucks
+  name: cloud-native-devsecops-service
+  namespace: cloud-native-devsecops
 
 spec:
   selector:
-    app: starbucks
+    app: cloud-native-devsecops
 
   ports:
   - protocol: TCP

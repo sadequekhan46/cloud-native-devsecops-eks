@@ -2,14 +2,14 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 
 metadata:
-  name: starbucks-hpa
-  namespace: starbucks
+  name: cloud-native-devsecops-hpa
+  namespace: cloud-native-devsecops
 
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: starbucks-deployment
+    name: cloud-native-devsecops-deployment
 
   minReplicas: 2
   maxReplicas: 5
