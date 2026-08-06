@@ -36,11 +36,12 @@ jobs:
 
     - name: Run Snyk Security Scan
       uses: snyk/actions/node@master
-      continue-on-error: true
+      continue-on-error: false
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
         command: test
+        args: --severity-threshold=critical 
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
@@ -58,6 +59,14 @@ jobs:
         docker build -t $ECR_REPOSITORY:${{ github.sha }} .
         docker tag $ECR_REPOSITORY:${{ github.sha }} \
         $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:${{ github.sha }}
+    
+    - name: Snyk Container Scan
+      uses: snyk/actions/docker@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        image: $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:${{ github.sha }}
+        args: --severity-threshold=high    
 
     - name: Push Docker Image
       run: |
