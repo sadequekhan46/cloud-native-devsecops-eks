@@ -1,0 +1,10 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.25.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-REACTDEVUTILS-17890708:
+    - '*':
+        reason: No fix available in react-scripts@5.0.1
+        expires: 2027-08-06T00:00:00.000Z
+        created: 2026-08-06T10:27:34.712Z
+patch: {}
